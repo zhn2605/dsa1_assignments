@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 
+#include "foobar.hpp"
+
 // Read from file and gather 
 bool read_input_file(std::string fileName) {
     // Create an ifstream object and open the file
@@ -32,7 +34,7 @@ int main() {
     std::cout <<  "Enter the name of the input file: ";
     std::cin >> fileName;
 
-    // Testint purposes
+    // Testing purposes
     read_input_file(fileName);
     
     return 0;
