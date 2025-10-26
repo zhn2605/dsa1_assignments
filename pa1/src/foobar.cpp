@@ -13,16 +13,16 @@ void Foobar::setPosition(int pos) {
 }
 
 // Getters
-int Foobar::getPosition() {
+int Foobar::getPosition() const {
     return position;
 }
 
-std::string Foobar::getName() {
+std::string Foobar::getName() const {
     return foobarName;
 }
 
 // virtual function, redefined in derived classes
-int Foobar::getStrength() {
+int Foobar::getStrength() const {
     // Add 1, position '0' will have strength of 1 as it is the 
     // first in line.
     return position + 1;

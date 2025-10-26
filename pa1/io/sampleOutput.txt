@@ -1,0 +1,10 @@
+R2D2 11
+Carl 30
+Algorithms 27
+IAmABar 23
+xyz 22
+123q456 18
+CooperUnion 15
+DataStructures 19
+xyz 3
+CooperUnion 6
