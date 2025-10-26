@@ -7,7 +7,7 @@ class Foo : public Foobar {
 public:
     // Derived from base constructor
     using Foobar::Foobar;
-    int getStrength() const override { return (getPosition() + 1) * 3; } // inline def because i dont wanna make another file for this
+    int getStrength() const override { return getPosition() * 3; } // inline def because i dont wanna make another file for this
 };
 
 #endif

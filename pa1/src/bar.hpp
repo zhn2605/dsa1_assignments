@@ -7,7 +7,7 @@ class Bar : public Foobar {
 public:
     // Derived from base constructor
     using Foobar::Foobar;
-    int getStrength() const override { return getPosition() + 1 + 15; }
+    int getStrength() const override { return getPosition() + 15; }
 };
 
 #endif
