@@ -23,7 +23,5 @@ std::string Foobar::getName() const {
 
 // virtual function, redefined in derived classes
 int Foobar::getStrength() const {
-    // Add 1, position '0' will have strength of 1 as it is the 
-    // first in line.
     return position;
 }

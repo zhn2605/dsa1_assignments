@@ -19,7 +19,6 @@ void process_foobar(vector<unique_ptr<Foobar>>& list ) {
     }
 }
 
-
 // Read from file and gather 
 // Returning smart pointers to avoid memory leakage
 vector<unique_ptr<Foobar>> load_foobars_from_file(string fileName) {
