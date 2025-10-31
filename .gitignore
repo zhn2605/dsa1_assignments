@@ -1,3 +1,4 @@
 # Ignore out files
 *.o
+*.out
 *.vscode/
