@@ -7,7 +7,8 @@
 template <typename T>
 class SimpleList {
 public:
-    SimpleList(std::string& listName) : name(listName), head(nullptr), tail(nullptr) {}
+    // explicit keyword used to prevent implicit conversion when passing parameters
+    explicit SimpleList(std::string& listName) : name(listName), head(nullptr), tail(nullptr) {}
 
     // list methods
     virtual void push(T& value) = 0;
