@@ -8,11 +8,12 @@ template <typename T>
 class SimpleList {
 public:
     // explicit keyword used to prevent implicit conversion when passing parameters
-    explicit SimpleList(std::string& listName) : name(listName), head(nullptr), tail(nullptr) {}
+    explicit SimpleList(const std::string& listName) : name(listName), head(nullptr), tail(nullptr) {}
 
     // list methods
-    virtual void push(T& value) = 0;
+    virtual void push(const T& value) = 0;
     virtual T pop() = 0;
+    bool empty() const { return head == nullptr; }
 
     // Getter
     std::string getName() { return name; }

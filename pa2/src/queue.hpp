@@ -3,9 +3,9 @@
 
 // Again, reduce unecessary class definitions with generic type
 template <typename T>
-class Stack : public SimpleList<T> {
+class Queue : public SimpleList<T> {
 public:
-    explicit Stack(std::string& name) : SimpleList<T>(name) {}
+    explicit Queue(const std::string& name) : SimpleList<T>(name) {}
 
     // overide base class funcitons
     // queue is FIFO

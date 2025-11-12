@@ -7,7 +7,7 @@
 template <typename T>
 class Stack : public SimpleList<T> {
 public:
-    explicit Stack(std::string& name) : SimpleList<T>(name) {}
+    explicit Stack(const std::string& name) : SimpleList<T>(name) {}
 
     // overide base class funcitons
     // stack is LIFO
