@@ -59,7 +59,7 @@ bool processComands(const string& inputFileName, const string& outputFileName,
         char list_type = name[0];
         
         // Prase command
-        cout  << "PROCESSING COMMAND: " << line << "\n";
+        outputFile  << "PROCESSING COMMAND: " << line << "\n";
         if (command == "create") {
             string sl_type;
             ss >> sl_type;
@@ -69,19 +69,19 @@ bool processComands(const string& inputFileName, const string& outputFileName,
                 case 'i': {
                     // check for repeating
                     auto* target = searchForList<int>(name, listSLi);
-                    if (target) cout << "ERROR: This name already exists!\n";
+                    if (target) outputFile << "ERROR: This name already exists!\n";
                     else listSLi.push_front(createSimpleList<int>(name, sl_type));
                     break;
                 }
                 case 'd': {
                     auto* target = searchForList<double>(name, listSLd);
-                    if (target) cout << "ERROR: This name already exists!\n";
+                    if (target) outputFile << "ERROR: This name already exists!\n";
                     else listSLd.push_front(createSimpleList<double>(name, sl_type));
                     break;
                 }
                 case 's': {
                     auto* target = searchForList<string>(name, listSLs);
-                    if (target) cout << "ERROR: This name already exists!\n";
+                    if (target) outputFile << "ERROR: This name already exists!\n";
                     else listSLs.push_front(createSimpleList<string>(name, sl_type));
                     break;
                 }
@@ -96,7 +96,7 @@ bool processComands(const string& inputFileName, const string& outputFileName,
                     ss >> i_value;
                     auto* target = searchForList<int>(name, listSLi);
                     if (target) target->push(i_value);
-                    else cout << "ERROR: This name does not exist!\n";
+                    else outputFile << "ERROR: This name does not exist!\n";
                     break;
                 }
                 case 'd': {
@@ -104,7 +104,7 @@ bool processComands(const string& inputFileName, const string& outputFileName,
                     ss >> d_value;
                     auto* target = searchForList<double>(name, listSLd);
                     if (target) target->push(d_value);
-                    else cout << "ERROR: This name does not exist!\n";
+                    else outputFile << "ERROR: This name does not exist!\n";
                     break;
                 }
                 case 's': {
@@ -112,7 +112,7 @@ bool processComands(const string& inputFileName, const string& outputFileName,
                     ss >> s_value;
                     auto* target = searchForList<string>(name, listSLs);
                     if (target) target->push(s_value);
-                    else cout << "ERROR: This name does not exist!\n";
+                    else outputFile << "ERROR: This name does not exist!\n";
                     break;
                 }
             }
@@ -122,50 +122,50 @@ bool processComands(const string& inputFileName, const string& outputFileName,
                 case 'i': {
                     auto* target = searchForList<int>(name, listSLi);
                     if (!target) {
-                        cout << "ERROR: This name does not exist!\n";
+                        outputFile << "ERROR: This name does not exist!\n";
                         break;
                     }
                     if (target->empty()) {
-                        cout << "ERROR: This list is empty!\n";
+                        outputFile << "ERROR: This list is empty!\n";
                         break;
                     }
                     int value = target->pop();
-                    cout << "Value popped: " << value << "\n";
+                    outputFile << "Value popped: " << value << "\n";
                     break;
                 }
         
                 case 'd': {
                     auto* target = searchForList<double>(name, listSLd);
                     if (!target) {
-                        cout << "ERROR: This name does not exist!\n";
+                        outputFile << "ERROR: This name does not exist!\n";
                         break;
                     }
                     if (target->empty()) {
-                        cout << "ERROR: This list is empty!\n";
+                        outputFile << "ERROR: This list is empty!\n";
                         break;
                     }
                     double value = target->pop();
-                    cout << "Value popped: " << value << "\n";
+                    outputFile << "Value popped: " << value << "\n";
                     break;
                 }
         
                 case 's': {
                     auto* target = searchForList<string>(name, listSLs);
                     if (!target) {
-                        cout << "ERROR: This name does not exist!\n";
+                        outputFile << "ERROR: This name does not exist!\n";
                         break;
                     }
                     if (target->empty()) {
-                        cout << "ERROR: This list is empty!\n";
+                        outputFile << "ERROR: This list is empty!\n";
                         break;
                     }
                     string value = target->pop();
-                    cout << "Value popped: " << value << "\n";
+                    outputFile << "Value popped: " << value << "\n";
                     break;
                 }
         
                 default:
-                    cout << "ERROR: Unknown list type!\n";
+                    outputFile << "ERROR: Unknown list type!\n";
                     break;
             }
         }
