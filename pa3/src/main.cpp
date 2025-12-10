@@ -126,15 +126,23 @@ bool cmpData(const Data* a, const Data* b) {
 
 // Implement quick sort
 int partition(vector<Data*>& arr, int low, int high) {
-  Data* pivot = arr[high];   // pivot is a Data*
-  
+  int mid = (low + high) / 2;
+
+  // Median-of-three pivot
+  if (cmpData(arr[mid], arr[low])) swap(arr[low], arr[mid]);
+  if (cmpData(arr[high], arr[low])) swap(arr[low], arr[high]);
+  if (cmpData(arr[high], arr[mid])) swap(arr[mid], arr[high]);
+
+  swap(arr[mid], arr[high]);
+  Data* pivot = arr[high];
+
   int i = low - 1;
 
-  for (int j = low; j <= high - 1; j++) {
-    if (cmpData(arr[j], pivot)) {
-        i++;
-        swap(arr[i], arr[j]);
-    }
+  for (int j = low; j < high; j++) {
+      if (cmpData(arr[j], pivot)) {
+          i++;
+          swap(arr[i], arr[j]);
+      }
   }
 
   swap(arr[i + 1], arr[high]);
@@ -142,8 +150,8 @@ int partition(vector<Data*>& arr, int low, int high) {
 }
 
 
-void quickSort(vector<Data *>& arr, int low, int high) {
 
+void quickSort(vector<Data *>& arr, int low, int high) {
   if (low < high) {
     // pi is the partition return index of pivot
     int pi = partition(arr, low, high);
@@ -165,8 +173,10 @@ void sortDataList(list<Data *> &l) {
     cpy.push_back(node);
   }
 
+  // Sort using quick sort
   quickSort(cpy, 0, size - 1);
 
+  // Copy back into list
   auto it = l.begin();
   for (int i = 0; i < size; i++, it++)
     *it = cpy[i];
